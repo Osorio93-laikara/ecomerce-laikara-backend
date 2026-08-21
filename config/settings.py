@@ -109,18 +109,37 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME', 'defaultdb'),
+        'USER': os.getenv('DB_USER', 'avnadmin'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT', '3307'),
+        'HOST': os.getenv(
+            'DB_HOST',
+            'laikara-blok-db-laikara-blok.e.aivencloud.com'
+        ),
+        'PORT': os.getenv('DB_PORT', '18063'),
         'OPTIONS': {
-            'charset': os.getenv('DB_CHARSET', 'utf8mb4'),
-            'init_command': f"SET sql_mode='{os.getenv('DB_SQL_MODE', 'STRICT_TRANS_TABLES')}'"
-        }
+            'ssl': {
+                'ca': BASE_DIR / 'ca.pem',
+            },
+        },
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mysql.connector.django',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASSWORD'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PORT': os.getenv('DB_PORT', '3307'),
+#         'OPTIONS': {
+#             'charset': os.getenv('DB_CHARSET', 'utf8mb4'),
+#             'init_command': f"SET sql_mode='{os.getenv('DB_SQL_MODE', 'STRICT_TRANS_TABLES')}'"
+#         }
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
