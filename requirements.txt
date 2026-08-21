@@ -61,6 +61,7 @@ MarkupPy==1.14
 minio==7.2.7
 msgpack==1.0.8
 mysql-connector-python==9.0.0
+mysqlclient==2.2.4
 oauthlib==3.2.1
 odfpy==1.4.1
 openpyxl==3.0.10
