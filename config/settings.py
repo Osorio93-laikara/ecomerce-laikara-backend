@@ -31,12 +31,12 @@ SECRET_KEY = 'django-insecure-*earl&tjnfc-#k+tknif=7zc4*7ie3i)%0-(of(k1!i-^*jk1q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-]
+# ALLOWED_HOSTS = [
+#     'localhost',
+#     '127.0.0.1',
+# ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition
@@ -70,6 +70,11 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'ecomerce-laikara-backend.onrender.com',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+    "https://batako-frontend.onrender.com",
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
